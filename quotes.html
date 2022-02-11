@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundycord quotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./quotes.css">
+</head>
+<body>
+    <!-- create a search bar -->
+    <div>
+        <div class="topnav">
+            <a id="home" class="active">Home</a>
+            <a id="about">About</a>
+            <!-- <a id="contact">Contact</a> -->
+            <div class="search-container">
+                <input id="search" type="text" placeholder="Search..">
+                <button type="submit" onclick="search()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="display"></div>
+        <div class="discord" hidden="true">
+            <div>
+                <a href="https://discord.gg/fundy" target="_blank" rel="noopener noreferrer">
+                    <img src="./images/discord.png" alt="discord" width="90" height="60">
+                </a>
+            </div>
+            <div><a id="name">Fundycord</a></div>
+        </div>
+    </div>
+    <script>
+        const aboutTxt = 
+        `<p>This is a website that allows you to search for funny quotes from fundycord people.</p>
+        <p>The quotes images are made by Astria.</p>`
+        const home = document.getElementById("home");
+        const about = document.getElementById("about");
+        // const contact = document.getElementById("contact");
+        const display = document.querySelector(".display");
+        const discord = document.querySelector(".discord");
+        const search_bar = document.getElementById("search");
+        let images = "<div class=\"row\">";
+        let k = 1;
+        let width = 17 * 25
+        let height = 8 * 25
+        for (let i = 1; i <= 4; i++) {
+            for (let j = 1; j <= 2; j++) {
+                images += `<img class="quotes" src="./images/img${k}.png" alt="img${k}.png" width="${width}" height="${height}">`;
+                k++;
+            }
+        }
+        images += "</div>";
+        console.log(images);
+        console.log(k);
+        display.innerHTML = images;
+        function search() {
+            const text = search_bar.value;
+            console.log("text: " + text);
+        }
+        window.onclick = e => {
+            switch (e.target.id) {
+                case "home":
+                    home.classList.contains("active") ? null : home.classList.add("active");
+                    // remove class from other elements
+                    about.classList.remove("active");
+                    // contact.classList.remove("active");
+                    // display home page
+                    display.innerHTML = images;
+                    if (discord.hidden == false) {
+                        discord.hidden = true;
+                    }
+                    break;
+                case "about":
+                    about.classList.contains("active") ? null : about.classList.add("active");
+                    // show about text in display in a paragraph
+                    display.innerHTML = aboutTxt;
+                    // remove class from other elements
+                    home.classList.remove("active");
+                    discord.hidden = false;
+                    // contact.classList.remove("active");
+                    break;
+                // case "contact":
+                //     // set class to active
+                //     // check if class is active, if false, set class to active, else do nothing
+                //     contact.classList.contains("active") ? null : contact.classList.add("active");
+                //     // remove class from other elements
+                //     home.classList.remove("active");
+                //     about.classList.remove("active");
+                //     // display contact page
+                //     display.innerHTML = `<p>Contact us at`
+                //     break;
+            }
+        }
+    </script>
+</body>
+</html>
