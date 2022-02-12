@@ -29,15 +29,18 @@ function search() {
     const text = search_bar.value.toLowerCase();
     // check if text is empty
     if (text == "") {
+	display.innerHTML = images;
         return;
     }
     for (const key in images_users) {
         if (key.includes(text)) {
-            display.innerHTML = `<div class="row">`;
+	    let new_imgs = `<div class="row">`;
             for (const user of images_users[key]) {
-                display.innerHTML += `<img class="quotes" src="./images/img${user}.png" alt="img${user}.png" width="${width}" height="${height}">`;
+                new_imgs += `<img class="quotes" src="./images/img${user}.png" alt="img${user}.png" width="${width}" height="${height}">`;
             }
-            display.innerHTML += `</div>`;
+            new_imgs += `</div>`;
+	    display.innerHTML = new_imgs;
+	    return;
         }
     }
 }
