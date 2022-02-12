@@ -12,7 +12,7 @@ body {
 }
 .quotes:hover {
     transform: scale(1.05);
-    box-shadow: #1a1919 10px 10px 50px;
+    box-shadow: black 10px 10px 50px;
 }
 /* add a background color to topnav bar 37 37 38 */
 .topnav {
@@ -86,6 +86,7 @@ body {
 .topnav a.active {
     background-color: #ffffff;
     color: #223446;
+    box-shadow: black 10px 10px 50px;
 }
 
 .topnav .search-container input[type=text] {
@@ -146,6 +147,9 @@ body {
     }
     .topnav a {
         text-align: center;
+        width: 85%;
+        margin: auto;
+        margin-top: 10px;
     }
     .topnav .search-container input[type=text] {
         border: 1px solid #ccc;
