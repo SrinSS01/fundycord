@@ -117,7 +117,21 @@ body {
     background: #ccc;
 }
 
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 1240px) {
+    .quotes {
+        display: block;
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .quotes:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* When the screen is less than 1200px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 1200px) {
     .quotes {
         display: block;
